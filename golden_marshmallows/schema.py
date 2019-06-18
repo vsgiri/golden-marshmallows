@@ -5,7 +5,7 @@ from marshmallow import (
 from sqlalchemy.dialects.postgresql import (
     ARRAY as pgARRAY, BIGINT, ENUM, TIMESTAMP, UUID)
 from sqlalchemy.sql.sqltypes import (
-    ARRAY, Boolean, BOOLEAN, DATE, Integer, INTEGER, JSON, String, TEXT)
+    ARRAY, Boolean, BOOLEAN, DATE, DateTime, Integer, INTEGER, JSON, String, TEXT, Text)
 
 
 def camelcase(string):
@@ -117,6 +117,7 @@ class GoldenSchema(CaseChangingSchema):
 
     FIELD_TYPE_MAP = {
         TEXT: fields.String,
+        Text: fields.String,
         String: fields.String,
         JSON: fields.Raw,
         ENUM: EnumField,
@@ -124,6 +125,7 @@ class GoldenSchema(CaseChangingSchema):
         Integer: fields.Integer,
         BIGINT: fields.Integer,
         TIMESTAMP: fields.DateTime,
+        DateTime: fields.DateTime,
         DATE: fields.Date,
         ARRAY: fields.List,
         pgARRAY: fields.List,
