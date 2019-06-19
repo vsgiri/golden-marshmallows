@@ -3,7 +3,7 @@ import re
 from marshmallow import (
     fields, post_load, Schema)
 from sqlalchemy.dialects.postgresql import (
-    ARRAY as pgARRAY, BIGINT, ENUM, TIMESTAMP, UUID)
+    ARRAY as pgARRAY, BIGINT, ENUM, TIMESTAMP, LTREE, UUID)
 from sqlalchemy.sql.sqltypes import (
     ARRAY, Boolean, BOOLEAN, DATE, DateTime, Integer, INTEGER, JSON, String, TEXT, Text)
 
@@ -131,6 +131,7 @@ class GoldenSchema(CaseChangingSchema):
         pgARRAY: fields.List,
         BOOLEAN: fields.Boolean,
         Boolean: fields.Boolean,
+        LTREE: fields.String,
         UUID: fields.UUID
     }
 
