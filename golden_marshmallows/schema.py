@@ -7,6 +7,7 @@ from sqlalchemy.dialects.postgresql import (
 from sqlalchemy.sql.sqltypes import (
     ARRAY, Boolean, BOOLEAN, DATE, DateTime, Integer, INTEGER, JSON, String, TEXT, Text)
 from sqlacodegen.dialects.postgresql import LTREE
+from sqlalchemy_utils import LtreeType
 
 
 def camelcase(string):
@@ -133,6 +134,7 @@ class GoldenSchema(CaseChangingSchema):
         BOOLEAN: fields.Boolean,
         Boolean: fields.Boolean,
         LTREE: fields.String,
+        LtreeType: fields.String,
         UUID: fields.UUID
     }
 
